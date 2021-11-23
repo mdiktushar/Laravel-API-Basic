@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\dummyAPI;
+use App\Http\Controllers\DeviceController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get("data",[dummyAPI::class,'getData']);
+Route::get("list/{id?}",[DeviceController::class, 'list']);
+
+Route::get("find/{id}",[DeviceController::class, 'find']);
+Route::post("input",[DeviceController::class, 'input']);
