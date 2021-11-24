@@ -24,3 +24,5 @@ Route::get("list/{id?}",[DeviceController::class, 'list']);
 
 Route::get("find/{id}",[DeviceController::class, 'find']);
 Route::post("input",[DeviceController::class, 'input']);
+Route::put("update",[DeviceController::class, "update"]);
+Route::get("search/{name}",[DeviceController::class, "search"]);

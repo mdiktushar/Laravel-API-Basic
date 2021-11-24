@@ -33,5 +33,35 @@ class DeviceController extends Controller
         }
             
     }
+
+    public function update(Request $request)
+    {
+        # code...
+        $data = Device::find($request->id);
+        $data->name = $request->name;
+        $data->list = $request->list;
+
+        $result = $data->save();
+
+        if($result) {
+            return ["Result" => "Data is updated"];
+        } else {
+            return ["Result" => "Error"];
+        }
+    }
+
+    public function search($name)
+    {
+        # code...
+        $data = Device::where("name","like", "%". $name."%")->get();
+
+        if(count($data)) {
+            return $data;
+        } else {
+            return ["Result"=>"No Result found"];
+        }
+
+        
+    }
 }
 
