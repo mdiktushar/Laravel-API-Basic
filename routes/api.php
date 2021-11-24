@@ -27,3 +27,6 @@ Route::post("input",[DeviceController::class, 'input']);
 Route::put("update",[DeviceController::class, "update"]);
 Route::get("search/{name}",[DeviceController::class, "search"]);
 Route::delete("delete/{id}",[DeviceController::class, "delete"]);
+
+// Validation
+Route::post("save",[DeviceController::class, 'validation']);

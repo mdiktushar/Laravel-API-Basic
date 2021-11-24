@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Device;
-
+use Validator;
 class DeviceController extends Controller
 {
     //
@@ -73,6 +73,27 @@ class DeviceController extends Controller
             return ["Result"=>"Deleted"];
         } else {
             return ["Result"=>"Not Deleted"];
+        }
+    }
+
+    public function validation(Request $request)
+    {
+        $rules = [
+            'name' => 'required',
+            'list' => 'required',
+        ];
+
+
+
+        $validator =  Validator::make($request->all(),$rules);
+
+        if($validator->fails()){
+            return response()->json([
+                "error" => 'validation_error',
+                "message" => $validator->errors(),
+            ], 422);
+        } else {
+            return "Done";
         }
     }
 }
