@@ -96,5 +96,13 @@ class DeviceController extends Controller
             return "Done";
         }
     }
+
+    public function upload(Request $request)
+    {
+        # code...
+        $file = $request->file('file')->store('apiDocs');
+        return "Successfully uploaded";
+
+    }
 }
 

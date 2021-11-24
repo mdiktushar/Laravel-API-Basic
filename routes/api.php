@@ -30,3 +30,6 @@ Route::delete("delete/{id}",[DeviceController::class, "delete"]);
 
 // Validation
 Route::post("save",[DeviceController::class, 'validation']);
+
+//Upload Files
+Route::post("upload",[DeviceController::class,'upload']);
