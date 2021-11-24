@@ -63,5 +63,17 @@ class DeviceController extends Controller
 
         
     }
+
+    public function delete($id)
+    {
+        # code...
+        $data = Device::find($id);
+
+        if($data->delete()) {
+            return ["Result"=>"Deleted"];
+        } else {
+            return ["Result"=>"Not Deleted"];
+        }
+    }
 }
 
